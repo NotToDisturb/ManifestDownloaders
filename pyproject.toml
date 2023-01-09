@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ManifestDownloaders"
+version = "1.0.0"
+authors = [
+    { name="Disturbo", email="nottodisturb.disturbo@gmail.com" }
+]
+description = "Tool download manifests from VALORANT"
+readme = "README.md"
+license = {text = "MIT"}
+dependencies = [
+    "ConfigLoader @ git+https://github.com/NotToDisturb/ConfigLoader.git#egg=ConfigLoader"
+]
+
+[project.urls]
+"GitHub" = "https://github.com/NotToDisturb/ManifestDownloaders"
+
+[tool.setuptools]
+packages = ["manifestexporter"]
