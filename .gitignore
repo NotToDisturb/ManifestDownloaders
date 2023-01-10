@@ -2,3 +2,5 @@
 /.venv/
 /standalone/build/
 /standalone/out/
+/manifestdownloaders/manifests_config.json
+ManifestDownloaders.iml
