@@ -1,6 +1,6 @@
 @echo off
-set init_folder=audioexporter
-set out_name=AudioExporter-standalone.zip
+set init_folder=manifestdownloaders
+set out_name=ManifestDownloaders-standalone.zip
 echo [INFO] CREATING %out_name%
 del /Q .\build\*.* > nul
 del /Q .\out\%out_name%
