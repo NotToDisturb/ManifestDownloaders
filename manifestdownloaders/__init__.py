@@ -46,7 +46,7 @@ class ManifestDownloaders:
         manifest_url = f"https://valorant.secure.dyn.riotcdn.net/channels/public/releases/{manifest_id}.manifest"
         manifest_path = self.__apply_manifest_to_path(self.config["manifest_path"], manifest_id)
         urlretrieve(manifest_url, manifest_path)
-        return self.__archive_manifest(manifest_id, manifest) if archive else manifest_path
+        return self.__archive_manifest(manifest_id, manifest_path) if archive else manifest_path
 
     def md_download(self, manifest: str, filter_paks: str, output_path: str = None, archive: bool = False):
         manifest_path = self.__get_manifest(manifest, archive)
