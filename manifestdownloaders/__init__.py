@@ -43,17 +43,11 @@ class ManifestDownloaders:
         if archived_path != "":
             return archived_path
 
-        if os.path.isfile(manifest):
-            manifest_name, manifest_dir = ManifestDownloaders.__separate_path(manifest)
-            _, dest_dir = ManifestDownloaders.__separate_path(self.config["manifest_path"])
-            if manifest_dir != dest_dir:
-                shutil.copy(manifest, self.config["manifest_path"] + manifest_name)
-            return manifest
-
         manifest_url = f"https://valorant.secure.dyn.riotcdn.net/channels/public/releases/{manifest_id}.manifest"
-        dest_path = self.__apply_manifest_to_path(self.config["manifest_path"], manifest_id)
-        urlretrieve(manifest_url, dest_path)
-        return dest_path
+        manifest_path = self.__apply_manifest_to_path(self.config["manifest_path"], manifest_id)
+        urlretrieve(manifest_url, manifest_path)
+        self.__archive_manifest(manifest, manifest_path)
+        return manifest_path
 
     def md_download(self, manifest: str, filter_paks: str, output_path: str = None, archive: bool = False):
         manifest_path = self.__get_manifest(manifest, archive)
